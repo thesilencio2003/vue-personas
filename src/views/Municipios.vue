@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <h1 class="text-start">Listado Comunas |
-            <button @click="newComuna()" class="btn btn-success mx-2">
+        <h1 class="text-start">Listado Municipios |
+            <button @click="newMunicipio()" class="btn btn-success mx-2">
                 <font-awesome-icon icon="plus" />
             </button>
         </h1>
@@ -11,21 +11,21 @@
                     <th scope="col">#</th>
                     <th scope="col">Code</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Municipality</th>
+                    <th scope="col">departamento</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(comuna, index) in comunas" :key="index">
+                <tr v-for="(municipio, index) in municipios" :key="index">
                     <th scope="row">{{ index + 1 }}</th>
-                    <td>{{ comuna.comu_codi }}</td>
-                    <td>{{ comuna.comu_nomb }}</td>
-                    <td>{{ comuna.muni_nomb }}</td>
+                    <td>{{ municipio.muni_codi }}</td>
+                    <td>{{ municipio.muni_nomb }}</td>
+                    <td>{{ municipio.depa_nomb }}</td>
                     <td>
-                        <button @click="deleteComuna(comuna.comu_codi)" class="btn btn-danger mx-2">
+                        <button @click="deleteMunicipio(municipio.muni_codi)" class="btn btn-danger mx-2">
                             <font-awesome-icon icon="trash" />
                         </button>
-                        <button @click="editComuna(comuna.comu_codi)" class="btn btn-warning mx-2">
+                        <button @click="editMunicipio(municipio.muni_codi)" class="btn btn-warning mx-2">
                             <font-awesome-icon icon="pencil" />
                         </button>
                     </td>
@@ -40,43 +40,43 @@ import Swal from 'sweetalert2'
 
 
 export default {
-    name: 'Comuna',
+    name: 'Municipio',
     data() {
         return {
-            comunas: []
+            municipios: []
         }
     },
     methods: {
-        deleteComuna(codigo) {
+        deleteMunicipio(codigo) {
             Swal.fire({
-                title: 'Do you want to delete the Comuna with id ${codigo}?',
+                title: 'Do you want to delete the Municipio with id ${codigo}?',
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                     // Swal.fire('Saved!', '', 'success')
-                    axios.delete(`http://127.0.0.1:8000/api/comunas/${codigo}`)
+                    axios.delete(`http://127.0.0.1:8000/api/municipios/${codigo}`)
                         .then(response => {
                             if (response.data.success) {
                                 Swal.fire('Deleted!!', '', 'success')
-                                this.comunas = response.data.comunas
+                                this.municipios = response.data.municipios
                             }
                         })
                 }
             })
         },
-        editComuna(id) {
-            this.$router.push({ name: 'EditarComuna', params: { id: `${id}` } })
+        editMunicipio(id) {
+            this.$router.push({ name: 'EditarMunicipio', params: { id: `${id}` } })
         },
-        newComuna() {
-            this.$router.push({ name: 'NewComuna' });
+        newMunicipio() {
+            this.$router.push({ name: 'NewMunicipio' });
         }
     },
     mounted() {
         axios
-            .get('http://127.0.0.1:8000/api/comunas')
-            .then(response => (this.comunas = response.data.comunas))
+            .get('http://127.0.0.1:8000/api/municipios')
+            .then(response => (this.municipios = response.data.municipios))
     },
 }
 </script>
