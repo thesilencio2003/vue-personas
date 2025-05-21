@@ -8,6 +8,7 @@ import EditarMunicipio from '@/components/EditarMunicipio.vue'
 import NewMunicipio from '@/components/NewMunicipio.vue'
 import Municipios from '@/views/Municipios.vue'
 import NewDepartamento from '@/components/NewDepartamento.vue'
+import EditarDepartamento from '@/components/EditarDepartamento.vue'
 
 const routes = [
   {
@@ -62,6 +63,11 @@ const routes = [
     path: '/add-departamento/',
     name: 'NewDepartamento',
     component: NewDepartamento
+  },
+    {
+    path: '/editar-departamento/:id',
+    name: 'EditarDepartamento',
+    component: EditarDepartamento
   },
 
 
