@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Comunas from '@/views/Comunas.vue'
+import Departamentos from '@/views/Departamentos.vue'
 import EditarComuna from '@/components/EditarComuna.vue'
 import NewComuna from '@/components/NewComuna.vue'
 import EditarMunicipio from '@/components/EditarMunicipio.vue'
@@ -50,6 +51,11 @@ const routes = [
       path: '/add-municipio/',
       name: 'NewMunicipio',
       component: NewMunicipio
+    },
+    {
+      path: '/departamentos/',
+      name: 'Departamentos',
+      component: Departamentos
     }
 
 
