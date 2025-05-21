@@ -22,10 +22,10 @@
                     <td>{{ pais.pais_nomb }}</td>
                     <td>{{ pais.pais_capi }}</td>
                     <td>
-                        <button @click="deleteComuna(pais.pais_codi)" class="btn btn-danger mx-2">
+                        <button @click="deletePais(pais.pais_codi)" class="btn btn-danger mx-2">
                             <font-awesome-icon icon="trash" />
                         </button>
-                        <button @click="editComuna(pais.pais_codi)" class="btn btn-warning mx-2">
+                        <button @click="editPais(pais.pais_codi)" class="btn btn-warning mx-2">
                             <font-awesome-icon icon="pencil" />
                         </button>
                     </td>
