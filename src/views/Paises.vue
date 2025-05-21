@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="text-start">Listado Comunas |
+        <h1 class="text-start">Listado Paises |
             <button @click="newPais()" class="btn btn-success mx-2">
                 <font-awesome-icon icon="plus" />
             </button>
@@ -11,6 +11,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Code</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Capital</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -19,6 +20,7 @@
                     <th scope="row">{{ index + 1 }}</th>
                     <td>{{ pais.pais_codi }}</td>
                     <td>{{ pais.pais_nomb }}</td>
+                    <td>{{ pais.pais_capi }}</td>
                     <td>
                         <button @click="deleteComuna(pais.pais_codi)" class="btn btn-danger mx-2">
                             <font-awesome-icon icon="trash" />
@@ -64,10 +66,10 @@ export default {
                 }
             })
         },
-        editComuna(id) {
+        editPais(id) {
             this.$router.push({ name: 'EditarPais', params: { id: `${id}` } })
         },
-        newComuna() {
+        newPais() {
             this.$router.push({ name: 'NewPais' });
         }
     },
