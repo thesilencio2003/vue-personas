@@ -62,7 +62,7 @@ export default {
     cancel(){
       this.$router.push({ name: 'Municipios' })
     },
-    async saveComuna(){
+    async saveMunicipio(){
       this.municipio.depa_codi = this.depa_codi
       const res = await axios.post('http://127.0.0.1:8000/api/municipios/', this.municipio)
       console.log(res);

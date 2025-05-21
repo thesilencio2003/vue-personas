@@ -50,6 +50,7 @@ export default {
   data(){
     return{
       comuna:{
+        comu_codi: 0,
         comu_nomb: '',
         muni_codi: 0
       },

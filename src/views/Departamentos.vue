@@ -47,26 +47,25 @@ export default {
     }
   },
   methods: {
-    deleteDepartamento(codigo) {
-      Swal.fire({
-        title: `¿Quieres eliminar el Departamento con código ${codigo}?`,
-        showCancelButton: true,
-        confirmButtonText: 'Eliminar',
-        cancelButtonText: 'Cancelar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          axios.delete(`http://127.0.0.1:8000/api/departamentos/${codigo}`)
-            .then(response => {
-              if (response.data.success) {
-                Swal.fire('¡Eliminado!', '', 'success');
-                this.getDepartamentos(); 
-              } else {
-                Swal.fire('Error', 'No se pudo eliminar el departamento.', 'error');
-              }
+       deleteDepartamento(codigo) {
+            Swal.fire({
+                title: `Do you want to delete the Departamento with id ${codigo}?`,
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    // Swal.fire('Saved!', '', 'success')
+                    axios.delete(`http://127.0.0.1:8000/api/departamentos/${codigo}`)
+                        .then(response => {
+                            if (response.data.success) {
+                                Swal.fire('Deleted!!', '', 'success')
+                                this.departamentos = response.data.departamentos
+                            }
+                        })
+                }
             })
-        }
-      })
-    },
+        },
     editDepartamento(id) {
       this.$router.push({ name: 'EditarDepartamento', params: { id: `${id}` } })
     },
