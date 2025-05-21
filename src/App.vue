@@ -4,7 +4,8 @@
     <router-link to="/about">About</router-link>|
     <router-link to="/comunas">Comunas</router-link>|
     <router-link to="/municipios">Municipios</router-link>|
-    <router-link to="/departamentos">departamentos</router-link>
+    <router-link to="/departamentos">departamentos</router-link>|
+    <router-link to="/paises">Paises</router-link>
   </nav>
   <router-view/>
 </template>
